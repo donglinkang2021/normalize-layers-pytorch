@@ -56,3 +56,28 @@ OK
 
 > For details on unbiased variance estimation, which is relevant to normalization techniques, please refer to [docs/unbiased_variation_estimation.md](docs/unbiased_variation_estimation.md). However, we find that we always use the biased version `unbiased=False` to calculate the variance of the input tensor, as it is more stable and commonly used in practice.
 
+## References
+
+- [GroupNorm? Then BatchNorm, InstanceNorm, LayerNorm, …](https://medium.com/%40zljdanceholic/groupnorm-then-batchnorm-instancenorm-layernorm-e2b2a1d350a0)
+- [Understanding Batch Normalization, Layer Normalization and Group Normalization by implementing from scratch](https://www.linkedin.com/pulse/understanding-batch-normalization-layer-group-implementing-pasha-s)
+- [Lyken17/GroupNorm.pytorch](https://github.com/Lyken17/GroupNorm.pytorch/blob/master/group_norm.py)
+
+## Citation
+
+If you find this project useful, please consider citing it in your work:
+
+```bibtex
+@misc{normalization_layers_pytorch,
+  author = {Dong, Linkang},
+  title = {Normalization Layers in PyTorch from Scratch},
+  year = {2025},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/donglinkang2021/normalize-layers-pytorch}}
+}
+```
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
