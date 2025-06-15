@@ -1,17 +1,11 @@
 # Normalization Layers in PyTorch from Scratch
 
 <div align="center">
-    <figure>
-        <img src="images/image_normalize.png" alt="Image Normalization Layers" width="700">
-        <figcaption>Image Normalization Layers: BatchNorm2d, LayerNorm/RMSNorm, InstanceNorm(GroupNorm(G=C)), GroupNorm.</figcaption>
-        </figcaption>
-    </figure>
-    <figure>
-        <img src="images/nlp_normalize.png" alt="NLP Normalization Layers" width="350">
-        <figcaption>NLP Normalization Layers: BatchNorm1d, LayerNorm/RMSNorm.</figcaption>
-    </figure>
+    <img src="images/image_normalize.png" alt="Image Normalization Layers" width="700">
+    <p>Image Normalization Layers: BatchNorm2d, LayerNorm/RMSNorm, InstanceNorm(GroupNorm(G=C)), GroupNorm.</p>
+    <img src="images/nlp_normalize.png" alt="NLP Normalization Layers" width="350">
+    <p>NLP Normalization Layers: BatchNorm1d, LayerNorm/RMSNorm.</p>
 </div>
-
 
 This project implements various normalization layers in PyTorch, designed to offer the same functionality as PyTorch's built-in layers, including versions suitable for both image (typically 4D tensors `N, C, H, W`) and NLP tasks (typically 3D tensors `B, T, D`).
 
