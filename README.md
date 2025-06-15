@@ -1,0 +1,58 @@
+# Normalization Layers in PyTorch from Scratch
+
+<div align="center">
+    <figure>
+        <img src="images/image_normalize.png" alt="Image Normalization Layers" width="700">
+        <figcaption>Image Normalization Layers: BatchNorm2d, LayerNorm/RMSNorm, InstanceNorm(GroupNorm(G=C)), GroupNorm.</figcaption>
+        </figcaption>
+    </figure>
+    <figure>
+        <img src="images/nlp_normalize.png" alt="NLP Normalization Layers" width="350">
+        <figcaption>NLP Normalization Layers: BatchNorm1d, LayerNorm/RMSNorm.</figcaption>
+    </figure>
+</div>
+
+
+This project implements various normalization layers in PyTorch, designed to offer the same functionality as PyTorch's built-in layers, including versions suitable for both image (typically 4D tensors `N, C, H, W`) and NLP tasks (typically 3D tensors `B, T, D`).
+
+## Implemented Normalization Layers
+
+
+| PyTorch Layer | Image | NLP | Custom Layer | Image | NLP |
+|---------------|-------|-----|--------------|-------|-----|
+| `BatchNorm2d` | ✅    | ❌  | [`BatchNorm2d`](normalize.py#L85) | ✅    | ❌  |
+| `BatchNorm1d` | ❌    | ✅  | [`BatchNorm1d`](normalize.py#L66) | ❌    | ✅  |
+| `GroupNorm`   | ✅    | ❌  | [`GroupNorm`](normalize.py#L101)   | ✅    | ❌  |
+| `LayerNorm`   | ✅    | ✅  | [`LayerNorm`](normalize.py#L16)   | ✅    | ✅  |
+| `RMSNorm`     | ✅    | ✅  | [`RMSNorm`](normalize.py#L34)     | ✅    | ✅  |
+
+
+## Running Tests
+
+The project includes unit tests to verify the implementations against PyTorch's native layers (where applicable).
+
+To run the tests, execute the following command from the root directory:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+**Expected Test Output:**
+
+```bash
+test_batchnorm1d_nlp_example (tests.test_batchnorm1d.TestBatchNorm1d) ... ok
+test_batchnorm2d_image_example (tests.test_batchnorm2d.TestBatchNorm2d) ... ok
+test_groupnorm_image_example (tests.test_groupnorm.TestGroupNorm) ... ok
+test_layernorm_image_example (tests.test_layernorm.TestLayerNorm) ... ok
+test_layernorm_nlp_example (tests.test_layernorm.TestLayerNorm) ... ok
+test_rmsnorm_image_example (tests.test_rmsnorm.TestRMSNorm) ... ok
+test_rmsnorm_nlp_example (tests.test_rmsnorm.TestRMSNorm) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.739s
+
+OK
+```
+
+> For details on unbiased variance estimation, which is relevant to normalization techniques, please refer to [docs/unbiased_variation_estimation.md](docs/unbiased_variation_estimation.md). However, we find that we always use the biased version `unbiased=False` to calculate the variance of the input tensor, as it is more stable and commonly used in practice.
+
